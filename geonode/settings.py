@@ -1085,3 +1085,4 @@ THUMBNAIL_GENERATOR = "geonode.geoserver.helpers.create_gs_thumbnail_geonode"
 CAS_VERSION = 3
 PASSWORD_RESET_LINK = "https://ssp.dream.upd.edu.ph/?action=sendtoken"
 
+SITE_NAME = 'ReMAP Web Portal'
