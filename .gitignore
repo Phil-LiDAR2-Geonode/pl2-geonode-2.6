@@ -97,3 +97,7 @@ slave
 
 # virtual env
 venv
+virtualenv
+
+#local_settings.py
+geonode/local_settings.py

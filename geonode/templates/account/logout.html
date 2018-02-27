@@ -8,7 +8,7 @@
 {% block body %}
   <div class="row">
     <div class="col-md-12">
-      <form method="POST" action="{% url "account_logout" %}" class="form-horizontal">
+      <!--<form method="POST" action="{% url "account_logout" %}" class="form-horizontal">
         <h2 class="page-title">{% trans "Log out" %}</h2>
         <fieldset>
           {% csrf_token %}
@@ -17,7 +17,8 @@
             <button type="submit" class="btn btn-primary">{% trans "Log out" %}</button>
           </div>
         </fieldset>
-      </form>
+      </form>-->
+    <a class="btn btn-warning btn-block" href="{% url "cas_ng_logout" %}" role="button">{% trans "Sign out" %}</a>
     </div>
   </div>
 {% endblock %}

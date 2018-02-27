@@ -86,7 +86,6 @@
                 {% if user.is_superuser %}
                 <li role="separator" class="divider"></li>
                 <li><a href="/admin/people/profile/add/">{% trans "Add User" %}</a></li>
-                <li><a href="{% url "account_invite_user" %}">{% trans "Invite User" %}</a></li>
                 <li><a href="{% url "group_create" %}">{% trans "Create Group" %}</a></li>
                 {% endif %}
               </ul>
@@ -127,7 +126,7 @@
                 </ul>
               </li>
 		      {% else %}
-		      <li><a href="#" data-toggle="modal" data-target="#SigninModal" role="button" >{% trans "Sign in" %} </a></li>
+		      <li><!--<a href="#" data-toggle="modal" data-target="#SigninModal" role="button" >--><a href="{% url "cas_ng_login" %}" role="button">{% trans "Sign in" %} </a></li>
               {% endif %}
             </ul>
           </div> <!--/.nav-collapse -->
@@ -198,7 +197,6 @@
             {% endif %}
             {% if user.is_superuser %}
             <li><a href="/admin/people/profile/add/">{% trans "Add User" %}</a></li>
-            <li><a href="{% url "account_invite_user" %}">{% trans "Invite User" %}</a></li>
             <li><a href="{% url "group_create" %}">{% trans "Create Group" %}</a></li>
             {% endif %}
           </ul>
@@ -231,7 +229,7 @@
 
     <!-- Modal must stay outside the navbar -->
     {% if not user.is_authenticated %}
-    <div class="modal fade" id="SigninModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!--<div class="modal fade" id="SigninModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
           <div class="modal-header">
@@ -259,7 +257,7 @@
           </form>
         </div>
       </div>
-    </div>
+    </div>-->
     {% endif %}
     <!-- End of Modal -->
 

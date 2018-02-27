@@ -312,6 +312,9 @@ INSTALLED_APPS = (
 
     # Third party apps
 
+    #CAS CLIENT
+    'django_cas_ng',
+
     # Utility
     'pagination',
     'taggit',
@@ -432,6 +435,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
 
+
     # The setting below makes it possible to serve different languages per
     # user depending on things like headers in HTTP requests.
     'django.middleware.locale.LocaleMiddleware',
@@ -458,6 +462,7 @@ MIDDLEWARE_CLASSES = (
 # Replacement of default authentication backend in order to support
 # permissions per object.
 AUTHENTICATION_BACKENDS = (
+    'django_cas_ng.backends.CASBackend',
     'oauth2_provider.backends.OAuth2Backend',
     'django.contrib.auth.backends.ModelBackend',
     'guardian.backends.ObjectPermissionBackend',
@@ -536,7 +541,7 @@ ACCOUNT_APPROVAL_REQUIRED = strtobool(
 
 # Email for users to contact admins.
 THEME_ACCOUNT_CONTACT_EMAIL = os.getenv(
-    'THEME_ACCOUNT_CONTACT_EMAIL', 'admin@example.com'
+    'THEME_ACCOUNT_CONTACT_EMAIL', 'lipad@dream.upd.edu.ph'
 )
 
 #
@@ -776,7 +781,7 @@ CKAN_ORIGINS = [{
 # Setting TWITTER_CARD to True will enable Twitter Cards
 # https://dev.twitter.com/cards/getting-started
 # Be sure to replace @GeoNode with your organization or site's twitter handle.
-TWITTER_CARD = True
+TWITTER_CARD = False
 TWITTER_SITE = '@GeoNode'
 TWITTER_HASHTAGS = ['geonode']
 
@@ -986,7 +991,8 @@ CELERY_CREATE_MISSING_QUEUES = True
 CELERY_IMPORTS = (
     'geonode.tasks.deletion',
     'geonode.tasks.update',
-    'geonode.tasks.email'
+    'geonode.tasks.email',
+    'geonode.tasks.users',
 )
 
 # AWS S3 Settings
@@ -1075,3 +1081,7 @@ THESAURI = []
 
 # Choose thumbnail generator -- this is the default generator
 THUMBNAIL_GENERATOR = "geonode.geoserver.helpers.create_gs_thumbnail_geonode"
+
+CAS_VERSION = 3
+PASSWORD_RESET_LINK = "https://ssp.dream.upd.edu.ph/?action=sendtoken"
+
